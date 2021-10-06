@@ -11,10 +11,5 @@ describe Player do
     expect(player1.hp).to eq Player::DEFAULT_HP
   end
 
-  describe "#attack" do
-    it "reduces the hp of a player by 10" do
-      player1.attack(player2)
-      expect(player2.hp).to eq 90
-    end
-  end
+
 end
