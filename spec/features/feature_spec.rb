@@ -21,4 +21,10 @@ feature Battle do
     click_link "Attack"
     expect(page).to have_text("Sergei was attacked by Bernard")
   end
+
+  scenario "press attack and reduce hp by 10" do
+    sign_in_and_play
+    click_link "Attack"
+    expect(page).to have_text("Player Sergei HP: 90")
+  end
 end
