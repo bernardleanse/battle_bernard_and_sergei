@@ -6,12 +6,19 @@ feature Battle do
   end
 
   scenario "filling in names and those names to be displayed" do
-    visit "/"
-    fill_in("Player_1_Name", with: "Bernard")
-    fill_in("Player_2_Name", with: "Sergei")
-    click_button("Submit")
+    sign_in_and_play
     expect(page).to have_text("Bernard vs Sergei")
     
   end
 
+  scenario "can view player 2 HP" do
+    sign_in_and_play
+    expect(page).to have_text("Player Sergei HP: 100")
+  end
+
+  scenario "press attack and get confirmation" do
+    sign_in_and_play
+    click_link "Attack"
+    expect(page).to have_text("Sergei was attacked by Bernard")
+  end
 end

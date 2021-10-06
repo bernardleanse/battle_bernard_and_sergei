@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 
 class Battle < Sinatra::Base
+  enable :sessions
   
   get '/' do
     "Battle!"
@@ -9,10 +10,27 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
+    
+    session[:Player_1_Name] = params[:Player_1_Name]
+    session[:Player_2_Name] = params[:Player_2_Name]
+    
+    p "params below"
     p params
-    p1 = params[:Player_1_Name]
-    p2 = params[:Player_2_Name]
+
+    redirect to '/play'
+    
+  end
+
+  get '/play' do
+    @p1 = session[:Player_1_Name]
+    @p2 = session[:Player_2_Name]
     erb(:play)
+  end
+
+  get '/attack' do
+    @p1 = session[:Player_1_Name]
+    @p2 = session[:Player_2_Name]  
+    erb(:attack)
   end
 
 
