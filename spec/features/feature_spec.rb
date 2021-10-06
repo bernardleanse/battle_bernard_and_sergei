@@ -1,5 +1,5 @@
 feature Battle do
-  scenario "dispalys text" do
+  scenario "displays text" do
     visit "/"
 
     expect(page).to have_text("Battle!")
