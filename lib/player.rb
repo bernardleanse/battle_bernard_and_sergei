@@ -16,5 +16,4 @@ class Player
 
 end
 
-
 # p = Player.new('bernard', moves: [:fight, :scratch, ""]) messing round
